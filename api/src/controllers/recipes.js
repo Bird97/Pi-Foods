@@ -73,7 +73,7 @@ async function allRecipes(req,res){
         }       
     }catch(e){
         console.log(e);
-        res.send("Se produjo un error :c").status(500);
+        res.send("Se produjo un error").status(500);
     }
 }
 //id
