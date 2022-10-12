@@ -38,6 +38,5 @@ module.exports = (sequelize) => {
         min:0
       }
     },
-
   });
 };
