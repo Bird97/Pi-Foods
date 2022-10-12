@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import { Loading } from "../Loading/Loading";
 import { NavBarDetails } from "../NavBar/NavBarDetails";
 import  imgDetails from "../../assets/delicious-food-frame-top-view.jpg";
 import {getDetails} from "../../redux/actions";
+
 import "./Details.css";
 
 export function Details() {
@@ -17,14 +18,15 @@ export function Details() {
 
     let diets="";
     let types="";
-    if(oneRecipe.diets>0){
+    
+    if(oneRecipe.diets){
         oneRecipe.diets.forEach(element => {  
             diets=diets+element+", ";  
         });
         diets=diets.substring(0, diets.length - 2)+"."; 
     }
 
-    if(oneRecipe.dishTypes>0){
+    if(oneRecipe.dishTypes){
         oneRecipe.dishTypes.forEach(element => {  
             types=types+element+", ";  
         });
@@ -38,17 +40,21 @@ export function Details() {
 
     //to read html from string
     let completedText = '';
-    let convert = str =>{
-        completedText = `<h3 >${str}</h3>`
-         document.querySelector('#divSum').innerHTML = completedText
+
+    async function texto(str,id){
+      let text= await str;
+      completedText = `<h3>${text}</h3>`
+      document.querySelector(id).innerHTML = completedText
     }
 
-    let convert2 = str =>{
-        completedText = `<>${str}</>`
-         document.querySelector('#ache4').innerHTML = completedText
-    }
-    convert(oneRecipe.summary)
-    convert2(oneRecipe.steps)
+    console.log(oneRecipe.summary);
+    //console.log(oneRecipe.steps);
+
+    texto(oneRecipe.summary,'#divSum');
+    texto(oneRecipe.steps,'#ache4');
+
+
+    
   
     if (!oneRecipe.name) {
       return (
@@ -79,8 +85,8 @@ export function Details() {
               </div>
               <div className="description">
                 <div>
-                    <h2>Diets</h2>
-                    <h3>{`DishTypes: ${types}`}</h3>
+                    <h2>Dish Types</h2>
+                    <h3>{`${types}`}</h3>
                 </div>
                 <div>
                     <h2>Diets</h2>
@@ -90,10 +96,11 @@ export function Details() {
                     <h2>Healt Score</h2>
                     <h3>{`${oneRecipe.score}`}</h3>
                 </div>
+                <h2>Summary</h2>
                 <div id="divSum"></div>
                 <div >
                     <h2>Steps</h2>
-                    <h3 id="ache4"></h3>
+                    <div id="ache4"></div>
                 </div>
               </div>
 

@@ -1,22 +1,16 @@
-import { useDispatch } from "react-redux";
+import { useDispatch //,useSelector
+} from "react-redux";
 
 import {
-  filterByContinent,
   orderByName,
-  orderByPopulation,
-
   orderByScore,
-  orderByName,
   filterByDiet,
-  getDiets
-
-
 } from "../../redux/actions";
 import "./Filters.css";
 
 export function Filter() {
   const dispatch = useDispatch();
-
+  //const Diets = useSelector((state) => state.diets);
   //const totalActivities = useSelector((state) => state.activities);
 
   //Funcion de reseteo a los filtros/orden:
@@ -38,6 +32,17 @@ export function Filter() {
     e.preventDefault();
     dispatch(orderByScore(e.target.value));
   }
+
+ //(e)={handleFilterDiet(e)}
+  //let completedText=``;
+  // async function Dietas(diets){
+  //   let dietas= await diets;  
+  //   completedText = `<select class="select" defaultValue="diets" onChange={${function(e){return handleFilterDiet(e)}}}}>
+  //   <option class="options" value="diets" disabled>diets</option>${dietas.map(d=>{return `<option class="options" value=${d.name}>${d.name}</option>`})}</select>`
+  //   document.querySelector(`#filtro`).innerHTML = completedText
+  // }
+  // Dietas(Diets);
+
 
   return (
     
@@ -79,40 +84,22 @@ export function Filter() {
 
         <div className="filtrado">
           <label className="label">Filter by: </label>
-          <select
-            className="select"
-            defaultValue="diets"
-            onChange={(e) => handleFilterDiet(e)}
-          >
-            
-            <option className="options" value="diets" disables>
-              Diets
-            </option>
-            {getDiets.map(e=>{<option className="options" value={e.name}>{e.name}</option>})}
-            
-            <option className="options" value="Africa">
-              Africa
-            </option>
-            <option className="options" value="South America">
-              South America
-            </option>
-            <option className="options" value="North America">
-              North America
-            </option>
-            <option className="options" value="Asia">
-              Asia
-            </option>
-            <option className="options" value="Europe">
-              Europe
-            </option>
-            <option className="options" value="Oceania">
-              Oceania
-            </option>
-          </select>
-
-          {
-            //TODO filtro por Actividad
-          }
+          <select class="select" defaultValue="diets" onChange={e=> handleFilterDiet(e)}>  
+                     <option className="options" value="diets" disabled>diets</option>
+                     <option className="options" value="gluten free">Gluten Free</option>
+                     <option className="options" value="ketogenic">Keto</option>
+                     <option className="options" value="vegetarian">Vegetarian</option>
+                     <option className="options" value="lacto vegetarian">Lacto-Vegetarian</option>
+                     <option className="options" value="ovo vegetarian">Ovo-Vegetarian</option>
+                     <option className="options" value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
+                     <option className="options" value="vegan">Vegan</option>
+                     <option className="options" value="pescetarian">Pescetarian</option>
+                     <option className="options" value="paleolithic">Paleo</option>
+                     <option className="options" value="primal">Primal</option>
+                     <option className="options" value="low fodmap">Low FODMAP</option>
+                     <option className="options" value="whole 30">Whole30</option>
+                     <option className="options" value="dairy free">Dairy Free</option>
+          </select>     
           <button className="btn-reload" onClick={(e) => handleReset(e)}>
             Reload
           </button>

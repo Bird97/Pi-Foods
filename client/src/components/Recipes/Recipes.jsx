@@ -1,7 +1,7 @@
 import React,{ useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Recipe } from "../Recipe/Recipe";
-import { getAllRecipes} from "../../redux/actions";
+import { getAllRecipes,getDiets} from "../../redux/actions";
 import { Loading } from "../Loading/Loading";
 import "./Recipes.css";
 import { Link } from "react-router-dom";
@@ -50,6 +50,7 @@ export function AllRecipes() {
 
   useEffect(() => {
     dispatch(getAllRecipes());
+    dispatch(getDiets());
   }, [dispatch]);
 
   if (errorRender.length === 0) {
