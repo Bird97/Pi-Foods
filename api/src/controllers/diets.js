@@ -37,7 +37,6 @@ async function chargeDiets(){
 async function dbDiets(req,res){
     try{
         let diets= await Diet.findAll();
-
         diets=diets.map(d=> {
             let diet={                
                 id:d.id,
