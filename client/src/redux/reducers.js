@@ -7,7 +7,7 @@ import {
     ORDER_RECIPES_BY_SCORE, //Ya :D
     FILTER_BY_DIET, //creo que Ya :D
     RESET, //Ya :D
-    RESET_DETAIL,
+    RESET_DETAIL, //Ya :D
     GET_RECIPES_BY_NAME //Ya :D
 
 } from "./actions"
@@ -17,22 +17,28 @@ const initialState = {
   recipesAll:[],
   diets: [],
   detail: [],
+  errorRender: []
 }
 
 export function rootReducer(state=initialState,action){
   
   switch(action.type){
+    
     case GET_RECIPES:
       return {
         ...state,
         recipes:action.payload,
-        recipesAll: action.payload
+        recipesAll: action.payload,
+        errorRender: action.payload
       };  
+
     case GET_DIETS:
+      
       return {
         ...state,
         diets:action.payload,
       };
+
     case POST_RECIPE:
       return state;
 
@@ -42,7 +48,6 @@ export function rootReducer(state=initialState,action){
       };
 
     case ORDER_RECIPES_BY_NAME:
-      
     let recipesOrderByName =
           action.payload !== "ZtoA"
             ? state.recipes.sort(function (a, b) {
@@ -78,18 +83,15 @@ export function rootReducer(state=initialState,action){
           recipes: recipesOrderByScore,
         };
 
-    case FILTER_BY_DIET:
-      {
-        let recipesByDiet = recipesAll.filter(
+    case FILTER_BY_DIET:     
+        let recipesByDiet = state.recipesAll.filter(
           recipe=> recipe.diets.includes(action.payload)
         );
         return {
           ...state,
           recipes:recipesByDiet
-        }
-      }
+        };
        
-
     case GET_RECIPES_BY_NAME:
       let searched=action.payload;
       if(searched!=="No se encontró receta"){
@@ -102,18 +104,21 @@ export function rootReducer(state=initialState,action){
           ...state,
           recipes:false,
         }
-      }
+      };
 
     case RESET:
       return {
         ...state,
-        recipes:recipesAll,
-      }
+        recipes:state.recipesAll,
+      };
   
     case RESET_DETAIL:
-      return state;
+      return {
+        ...state,
+        detail:[]
+      };
     
-      default:
+    default:
       return state;
 
   }

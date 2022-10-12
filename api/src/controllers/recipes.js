@@ -90,7 +90,7 @@ async function getRecipeById(req,res){
             } 
         }else{
             let buscado= await axios.get(`${spoonacularURL}/recipes/${id}/information?apiKey=${YOUR_API_KEY}`);
-            const {image,summary,title,healthScore,diets,dishTypes}= buscado.data;
+            const {image,summary,title,healthScore,diets,dishTypes,instructions}= buscado.data;
 
             let dietss=[];           
             if(buscado.data.vegan){
@@ -114,10 +114,11 @@ async function getRecipeById(req,res){
                 score: healthScore,
                 dishTypes,
                 summary,
+                steps: instructions
             }
 
-            console.log(diet);
-            res.send(buscado.data);
+            //console.log(diet);
+            res.send(diet);
         }    
     }catch(e){
         console.log(e);

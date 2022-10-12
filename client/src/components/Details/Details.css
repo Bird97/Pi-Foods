@@ -1,0 +1,183 @@
+.background {
+    padding-top: 10%;
+  }
+  
+  .imgDetais {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin-top: -121px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+  
+  .cardsDetails {
+    max-width: 65%;
+    height: 65%;
+    display: flow-root;
+    position: relative;
+    margin: auto;
+    margin-top: auto;
+    background: #11111194;
+    border: none;
+    z-index: 0;
+    border-radius: 50px;
+    margin-top: -50px;
+  }
+  
+  .cardsDetails:before {
+    content: '';
+    background: linear-gradient(0deg, #9030f0, #aa7ed6, #b679f2, #7126bd);position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 50px;
+  }
+  
+  .cardsDetails:before {
+    opacity: 1;
+  }
+  
+  .cardsDetails:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+  
+  
+  .Name {
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+    margin-top: 14px;
+    padding: 16px;
+    color: #ffff;
+  }
+  
+  .recipeImage {
+    max-width: 300px;
+    max-height: 350px;
+    margin: auto;
+    position: relative;
+    align-content: center;
+    display: flex;
+    border-radius: 25px;
+  }
+  
+  h2{
+    color:#fff;
+  }
+  .description {
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.2fr;
+    grid-row-gap: 1px;
+    margin: 5%;
+    color: #431670;
+    flex-direction: column;
+  }
+  
+  
+  .buttonss { 
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #bc13fe;
+    padding-top: 15px;
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  .button-home {
+    border: 4.4px solid #bc13fe;
+    border-radius: 32px;
+    display: inline;
+    font-size: 28px;
+    font-weight: 200;
+    font-style: italic;
+    padding: 2px 16px 8px;
+    border-radius: 32px;
+    text-decoration: none;
+    text-align: right;
+    animation: 4s infinite ;     
+    margin-left: 0%;
+    transition: 0.5s ease-in-out;
+  }
+
+  
+
+  .button-home:hover {
+    color: #fff;
+    text-shadow: -0.2rem -0.2rem 1rem rgb(255, 0, 0), 0.2rem 0.2rem 1rem #B679F2,
+    0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
+    0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
+    0 0 10rem var(--neon-text-color);
+
+    box-shadow: 0 0 0.5rem rgb(255, 255, 255), inset 0 0 0.5rem #fff,
+    0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+    0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+  }
+
+  .button-home:before {
+    
+    background: linear-gradient(0deg, #9030f0, #431670, #b679f2, #7126bd);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    border-radius: 10px;
+  }
+  
+  .button-home:hover:before {
+    opacity: 1;
+  }
+  
+  .button-home:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  .linked {
+    
+    text-decoration: none;
+    color: #bc13fe;
+  }
+
+  .linked:hover {
+    
+    text-decoration: none;
+    color: #ffff;
+  }
+  

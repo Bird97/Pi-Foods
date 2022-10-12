@@ -2,17 +2,16 @@ import axios from "axios"
 
 // -------------------> ACTIONS <-------------------
 
-export const GET_RECIPES = "GET_RECIPES"; // Ya :D
-export const GET_DIETS ="GET_DIETS"; //Ya :D
-export const GET_RECIPES_BY_NAME = "GET_RECIPES_BY_NAME"; // Ya :D
+export const GET_RECIPES = "GET_RECIPES"; 
+export const GET_DIETS ="GET_DIETS"; 
+export const GET_RECIPES_BY_NAME = "GET_RECIPES_BY_NAME"; 
 export const POST_RECIPE ="POST_RECIPE";
-export const GET_DETAILS ="GET_DETAILS"; //Ya :D
-export const ORDER_RECIPES_BY_NAME ="ORDER_RECIPES_BY_NAME"; //Ya :D
-export const ORDER_RECIPES_BY_SCORE ="ORDER_RECIPES_BY_SCORE"; //Ya :D
-export const FILTER_BY_DIET ="FILTER_BY_DIET"; //Ya :D
-export const RESET = "RESET"; //Ya :D
+export const GET_DETAILS ="GET_DETAILS"; 
+export const ORDER_RECIPES_BY_NAME ="ORDER_RECIPES_BY_NAME"; 
+export const ORDER_RECIPES_BY_SCORE ="ORDER_RECIPES_BY_SCORE"; 
+export const FILTER_BY_DIET ="FILTER_BY_DIET"; 
+export const RESET = "RESET"; 
 export const RESET_DETAIL = "RESET_DETAIL";
-
 
 //-------------------> RUTES <-------------------
 export const URL_RECIPES = "http://localhost:3001/recipes"
@@ -91,11 +90,11 @@ export function getDetails(id){
   };
 }
 
-// export function resetDetail() {
-//   return {
-//     type: RESET_DETAIL,
-//   };
-// }
+export function resetDetail() {
+  return {
+    type: RESET_DETAIL,
+  };
+}
 
 export function reset() {
   return {
@@ -104,6 +103,7 @@ export function reset() {
 }
 
 // // -------------------> ORDENAMIENTOS <-------------------
+
 export function orderByScore(payload) {
   return {
     type: ORDER_RECIPES_BY_SCORE,
