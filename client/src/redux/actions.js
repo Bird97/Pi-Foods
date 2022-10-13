@@ -18,6 +18,20 @@ export const URL_RECIPES = "http://localhost:3001/recipes"
 export const URL_POST_RECIPE = "http://localhost:3001/recipes/create"
 export const URL_DIETS = "http://localhost:3001/diets"
 
+
+export function postRecipe(payload){
+  return async function(dispatch) {
+    try {
+        var response = await axios.post(`${URL_POST_RECIPE}`,payload);
+        return dispatch({
+          type: POST_RECIPE,
+          payload: response.data,
+        });
+    } catch (error) {
+        console.log(error)
+    }
+  }
+}
 export function getAllRecipes() {
   return async function (dispatch) {
     try {

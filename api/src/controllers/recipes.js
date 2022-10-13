@@ -27,7 +27,8 @@ async function apiRecipes(req,res){
                 diets: diets.filter((item,index)=>{
                     return diets.indexOf(item)===index;
                 }),
-                score: d.healthScore
+                score: d.healthScore,
+                maxReadyTime: d.readyInMinutes,
             }
             return diet;
         })
@@ -77,6 +78,25 @@ async function allRecipes(req,res){
     }
 }
 //id
+
+function standar(buscado){
+    let{id,name,summary,steps,image,score}= buscado;
+    let dietas=[];
+    buscado.diets.map(d=>{return dietas.push(d.name)});
+    let recipe={
+        id,
+        name,
+        summary,
+        steps,
+        image,
+        score,
+        diets:dietas,
+
+    }
+    
+    return recipe;
+}
+
 async function getRecipeById(req,res){
     //si busca id de la db
     try{
@@ -84,7 +104,8 @@ async function getRecipeById(req,res){
         if(id<0){
             buscado= await Recipe.findByPk(id.toUpperCase(),{include:Diet});
             if(buscado){
-                return res.status(200).send(buscado);
+                
+                return res.status(200).send(standar(buscado));
             }else{
                 return res.status(404).json({ err: `No se encontró una receta con el id: ${id}` });
             } 

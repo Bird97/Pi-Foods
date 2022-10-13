@@ -38,5 +38,11 @@ module.exports = (sequelize) => {
         min:0
       }
     },
+
+    maxReadyTime:{
+      type: DataTypes.INTEGER,
+      defaultValue:0,
+    },
+
   });
 };

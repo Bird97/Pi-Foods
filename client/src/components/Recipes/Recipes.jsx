@@ -53,6 +53,19 @@ export function AllRecipes() {
     dispatch(getDiets());
   }, [dispatch]);
 
+
+  // function standar(){
+    
+  //   recipeData=recipeData.map((c)=>{
+  //     let dits=[];
+  //     if(c.id<0){
+  //       c.diets.map(d=>dits.push(d.name));
+  //     }
+  //     c.diets=dits;
+  //   });
+  // }
+  // standar();
+
   if (errorRender.length === 0) {
     return (
       <div>
@@ -68,14 +81,15 @@ export function AllRecipes() {
             console.log(allRecipe),
             <p className="empty">No se encontraron recetas con estas caracteristicas.</p>
           ) : (
-            recipeData.map((c, index) => (
+            recipeData.map((c, index) =>( 
               <Link key={index} to={"/recipes/" + c.id} className= "linked">
                 <Recipe
                   key={index}
                   name={c.name}
                   image={c.image}
-                  diets={c.diets}
+                  diets={c.id>0?c.diets:c.diets.map(d=>{return d.name})}
                   id={c.id}
+                  maxReadyTime={c.maxReadyTime}
                 />
               </Link>
             ))

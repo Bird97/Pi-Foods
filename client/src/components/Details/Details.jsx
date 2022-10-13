@@ -32,7 +32,6 @@ export function Details() {
         });
         types=types.substring(0, types.length - 2)+"."; 
     }
-    
 
     useEffect(() => {
       dispatch(getDetails(params.id));

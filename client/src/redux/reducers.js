@@ -23,7 +23,7 @@ const initialState = {
 export function rootReducer(state=initialState,action){
   
   switch(action.type){
-    
+     
     case GET_RECIPES:
       return {
         ...state,
@@ -40,7 +40,7 @@ export function rootReducer(state=initialState,action){
       };
 
     case POST_RECIPE:
-      return state;
+      return { ...state, recipes: state.recipes.concat(action.payload) };
 
     case GET_DETAILS:
       return { ...state, 
