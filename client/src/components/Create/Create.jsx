@@ -48,11 +48,12 @@ export function Create() {
   };
 
   function handleDietChange(e) { 
+    if(!input.diets.includes(e.target.value)){
       setInput({ 
         ...input, 
         diets: [...input.diets, e.target.value] 
       });
-
+    }
   };
 
   function handleSubmit(e) {    
@@ -66,18 +67,17 @@ export function Create() {
         return alert(Object.values(errors));
       } else {
         dispatch(postRecipe(input));
-      }
-      setInput({
-        name: ``,
-        summary: ``,
-        score: ``,
-        steps: ``,
-        diets: [],
-      });
-      return (
-        alert(`La receta fue creada con éxito.`), navigate(`/recipes/`)
-      ) 
-      
+        setInput({
+          name: ``,
+          summary: ``,
+          score: ``,
+          steps: ``,
+          diets: [],
+        });
+        return (
+          alert(`La receta fue creada con éxito.`), navigate(`/recipes/`)
+        ) 
+      }   
     } catch (error) {
       console.log(error);
       // return alert(

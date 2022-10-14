@@ -93,7 +93,7 @@ export function Filter() {
                      <option className="options" value="ovo vegetarian">Ovo-Vegetarian</option>
                      <option className="options" value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
                      <option className="options" value="vegan">Vegan</option>
-                     <option className="options" value="pescetarian">Pescetarian</option>
+                     <option className="options" value="pescatarian">Pescatarian</option>
                      <option className="options" value="paleolithic">Paleo</option>
                      <option className="options" value="primal">Primal</option>
                      <option className="options" value="low fodmap">Low FODMAP</option>

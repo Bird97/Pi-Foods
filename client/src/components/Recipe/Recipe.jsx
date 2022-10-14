@@ -1,7 +1,7 @@
 import React from "react";
 import "./Recipe.css";
 
-export function Recipe({ id,image, name, diets,maxReadyTime}) {
+export function Recipe({ id,image, name, diets}) {
     
   let dietas=""; //inicializo variable;
   
@@ -22,10 +22,6 @@ export function Recipe({ id,image, name, diets,maxReadyTime}) {
       </div>
       <h3 className="recipe-name">{name}</h3>
       <div>
-        maxReadyTime:
-        <h3 className="diets">{           
-          maxReadyTime
-        }</h3>
         Diets type:
         <h4 className="diets">{           
           dietas
